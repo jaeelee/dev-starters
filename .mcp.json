@@ -19,19 +19,19 @@
       "args": ["shadcn@latest", "mcp"]
     },
     "github": {
-      "type": "http",
-      "url": "https://api.githubcopilot.com/mcp/",
-      "headers": {
-        "Authorization": "Bearer ${input:github_mcp_pat}"
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${input:github_mcp_pat}"
       }
-    },
-    "inputs": [
-      {
-        "type": "promptString",
-        "id": "github_mcp_pat",
-        "description": "GitHub Personal Access Token",
-        "password": true
-      }
-    ]
-  }
+    }
+  },
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "github_mcp_pat",
+      "description": "GitHub Personal Access Token",
+      "password": true
+    }
+  ]
 }
